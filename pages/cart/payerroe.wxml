@@ -1,0 +1,8 @@
+<view class="okimg">
+  <image src="/images/ok.png"></image>
+</view>
+<view class="oktext">订单支付失败</view>
+<navigator  open-type="switchTab" url='/pages/member/index'>
+<button class="gotomember" >前往会员中心</button>
+</navigator>
+<view class="tel">客服电话：1234567</view>

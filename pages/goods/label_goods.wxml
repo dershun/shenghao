@@ -1,0 +1,27 @@
+<!--pages/goods/label_goods.wxml-->
+
+<view class="fenlei">
+  <view class="fenlei_img">
+   <image src='{{realm_name}}{{label_goodslist.src}}'></image>
+  </view>
+  <scroll-view class="goods_fenlei_list" scroll-y bindscrolltolower="downpullloding">
+    <view class="goods_main" >
+      <view class="goods_list"  wx:for="{{label_goodslist.goodslist}}"  wx:key="key" >
+        <navigator class="goods_thumb"  open-type="navigateTo" url='/pages/goods/goodsinfo?id={{item.id}}'>
+          <image src="{{item.img_src}}"></image>
+        </navigator>
+        <view class="goods_content">
+          <navigator class="goods_title"  open-type="navigateTo" url='/pages/goods/goodsinfo?id={{item.id}}'>{{item.goods_name}}</navigator>
+          <view class="goods_more_info">
+            <view class="goods_price">￥{{item.price}}/{{item.spec_name}}<text class="goods_oldprice">￥{{item.oldprice}}</text></view>
+            <image class="goods_plus" style='display: {{cartsall[item.id] == 0 || cartsall[item.id] == undefined?"none":"inline-block"}};' src="/images/min.png" data-type="min" data-id="{{item.id}}" bindtap="addcart" ></image>
+            <input type='number' style='display: {{cartsall[item.id] == 0 || cartsall[item.id] == undefined?"none":"inline-block"}};' value="{{cartsall[item.id] < item.stock ?cartsall[item.id]:item.stock }}" disabled="true"></input>
+            <image class="goods_plus" style='display: {{item.stock <= 0 || cartsall[item.id] >= item.stock?"none":"inline-block"}};' src="/images/plus.png" data-type="plus" data-id="{{item.id}}" data-stock="{{item.stock}}"  bindtap="addcart" ></image>
+            <image class="goods_plus" style='display: {{item.stock <= 0 || cartsall[item.id] >= item.stock?"inline-block":"none"}};' src="/images/plus.png"  bindtap="nostock" ></image>
+          </view>
+        </view>
+      </view>
+      <view class='lodingtips {{lodingtips ?"":"hide"}}'>{{lodingtipstext}}</view>
+    </view>
+  </scroll-view>
+</view>

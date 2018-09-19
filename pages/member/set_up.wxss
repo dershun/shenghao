@@ -1,0 +1,39 @@
+/* pages/member/set_up.wxss */
+@import "/public/common.wxss";
+
+.service_list{
+ 
+}
+
+.service_list .service{
+  height: 100rpx;
+  display: flex;
+  flex-direction:row;
+  margin-top: 6rpx;
+  background: #fff;
+}
+
+.service .tubiao{
+  width: 50rpx;
+  height: 50rpx;
+  margin-left: 25rpx;
+  margin-top: 25rpx;
+}
+
+.service .title{
+  flex: 1;
+  font-size: 26rpx;
+  line-height: 100rpx;
+  margin-left: 30rpx;
+}
+
+.service .youjt{
+  width: 40rpx;
+  height: 40rpx;
+  float: right;
+  margin-top: 30rpx;
+  margin-right: 20rpx;
+}
+.service_list .out_loging{
+  margin-top: 20rpx;
+}

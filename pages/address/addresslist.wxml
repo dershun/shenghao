@@ -1,0 +1,19 @@
+<!--pages/address/addresslist.wxml-->
+
+<view class='address'  wx:for="{{addresslist}}"  wx:key="key">
+  <view class='addressinfo'>
+    <text>姓名：{{item.name}}</text>
+    <text>电话：{{item.tel}}</text>
+    <view class='addressfo'><view style='width:120rpx;'>小区名称：</view><view style='flex:1;'>{{item.community_name}}</view></view>
+    <view class='addressfo'><view style='width:120rpx;'>详细地址：</view><view style='flex:1;'>{{item.address}}</view></view>
+  </view>
+  <navigator class='addresssetup' url="/pages/address/addaddress?id={{item.id}}&uid={{userinfo.id}}" >
+  <image src="../../images/addressset_up.png"></image>
+  <view class='default_address' wx:if="{{userinfo.default_address == item.id}}">默认</view>
+  </navigator>
+  
+</view>
+<view style='height:150rpx;'></view>
+<view class="btn-area {{isix?'fix-iphonex-button':''}}">
+  <navigator url="/pages/address/addaddress" >新增地址</navigator>
+</view>

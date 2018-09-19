@@ -1,0 +1,71 @@
+/* pages/address/addresslist.wxss */
+@import "/public/common.wxss";
+
+.address{
+  width: 670rpx;
+  padding: 20rpx;
+  margin: 0 auto;
+  margin-top: 20rpx;
+  border: #CCCCCC 1rpx solid;
+  border-radius: 10rpx;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  background: #fff;
+}
+
+
+
+.address .addressinfo{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  font-size: 24rpx;
+  line-height: 40rpx;
+}
+
+.addressinfo .addressfo{
+  display: flex;
+  flex-direction: row;
+}
+
+.address .addresssetup{
+  width: 40rpx;
+  height: 40rpx;
+  margin-left:10rpx;
+}
+.addresssetup image{
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.addresssetup .default_address{
+  position: absolute;
+  right: 10rpx;
+  bottom:10rpx;
+  font-size: 22rpx;
+  padding: 5rpx 10rpx;
+  color: #fff;
+  background: #009999;
+  border-radius: 10rpx;
+}
+
+.btn-area{
+  position: fixed;
+  bottom: 0;
+  display: block;
+  width: 698rpx;
+  border-top :#ccc solid 1rpx;
+  padding: 10px 26rpx;
+  background: #fff;
+}
+
+.btn-area > navigator{
+  text-align: center;
+  padding: 20rpx ;
+  position: relative;
+  border: #009999;
+  background: #009999;
+  color: #fff;
+  border-radius:10rpx; 
+}

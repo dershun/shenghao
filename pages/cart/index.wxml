@@ -1,0 +1,35 @@
+<view class="cart_list"  wx:for="{{goodslist}}"  wx:key="key">
+  <view class="check_box">
+    <checkbox class="check padding_left_20" value="" checked='{{check}}' data-id="{{item.id}}"  bindtap="check_box"/>
+  </view>
+  <view class="goodsinfo">
+    <view class="goods_list">
+        <navigator class="goods_thumb"  open-type="navigateTo" url='/pages/goods/goodsinfo?id={{item.id}}'>
+          <image src="{{item.img_src}}"></image>
+        </navigator>
+        <view class="goods_content">
+          <view class="goods_title"><navigator  open-type="navigateTo" url='/pages/goods/goodsinfo?id={{item.id}}'>{{item.goods_name}}</navigator><view class='del_cart' data-id="{{item.id}}"  bindtap="del_cart"><image src='../../images/del_cart.png'></image></view></view>
+          
+          <view class="goods_more_info">
+            <view class="goods_price">{{item.price}}元/{{item.spec_name}}</view>
+            <image class="goods_plus" style='display: {{cartsall[item.id] == 1 ?"inline-block":"none"}};' src="/images/min.png" ></image>
+            <image class="goods_plus" style='display: {{cartsall[item.id] == 1 ?"none":"inline-block"}};' src="/images/min.png" data-type="min" data-id="{{item.id}}" data-stock="{{item.stock}}" bindtap="addcart" ></image>
+            <input type='number' value="{{cartsall[item.id] < item.stock ?cartsall[item.id]:item.stock }}" disabled="true"></input>
+            <image class="goods_plus" style='display: {{cartsall[item.id] >= item.stock?"none":"inline-block"}};' src="/images/plus.png" data-type="plus" data-id="{{item.id}}" data-stock="{{item.stock}}"  bindtap="addcart" ></image>
+            <image class="goods_plus" style='display: {{cartsall[item.id] >= item.stock?"inline-block":"none"}};' src="/images/plus.png"  ></image>
+          </view>
+        </view>
+      </view>
+  </view>
+</view>
+
+<view style="height:120rpx;"></view>
+
+<view class="footer">
+    <view class="check_box">
+      <checkbox class="check padding_left_20" value="" checked="{{checkall}}"  bindtap="checkall"/>{{item.value}}
+    </view>
+    <view>全选</view>
+  <view class="all_money">总金额:￥{{total}}</view>
+  <view class="now_buy" bindtap="place_an_order" >去结算({{sum}})</view>
+</view>

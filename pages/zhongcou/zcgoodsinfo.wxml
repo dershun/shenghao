@@ -1,0 +1,45 @@
+
+
+<swiper class="goods_thumb" circular="true" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+  <block>
+    <swiper-item  wx:for="{{goodsinfo.imgall_src}}"  wx:key="key">
+      <image src="{{realm_name}}{{item}}" class="slide-image" />
+    </swiper-item>
+  </block>
+</swiper>
+<view class="goods_info">
+  <view class="goods_title">{{goodsinfo.goods_title}}</view>
+  <view class = "synopsis" >{{goodsinfo.synopsis}}</view>
+  <view class="goods_price">目标金额：￥{{goodsinfo.price}}</view>
+  <view class="goods_moreinfo">
+    <view class='goods_payinfo'>
+      <view class='paymoney'><view>￥{{goodsinfo.paydata.sum_price}}</view><view>已售金额</view></view>
+      <view class='paydays'><view>{{goodsinfo.paydata.days_remaining}}天</view><view>剩余时间</view></view>
+      <view class='paynumber'><view>{{goodsinfo.paydata.count}}</view><view>支持人数</view></view>
+    </view>
+    <view class='goods_bili'>
+      <view class='goods_payjd'><view class='yi_payjd' style='width:{{goodsinfo.paydata.ratio}}%;'></view></view>
+      <view class='goods_paybfb'>{{goodsinfo.paydata.ratio}}%</view>
+    </view>
+  </view>
+  
+</view>
+
+<view class="space"></view>
+<view class='goods_info'>
+  <view>选择档位</view>
+  <view class='price_spec'>
+    <view wx:for="{{goodsinfo.price_spec}}"  wx:key="key" class='{{xuandang == item.id?"on":""}}' bindtap = "xuandang" data-id="{{item.id}}" data-pay="{{item.price}}" >{{item.name}}</view>
+  </view>
+</view>
+
+<view class="space"></view>
+  <view class="view_title">图文详情</view>
+  <rich-text nodes="{{goodsinfo.content}}"></rich-text>
+<view style='height:120rpx;'></view>
+<view class="footer {{isix?'fix-iphonex-button':''}}">
+  <navigator class="home" open-type="switchTab" url='/pages/index/index' >
+    <image src="/images/home_active.png"></image>
+  </navigator>
+  <button class="now_buy" bindtap = "buy" disabled="{{no_disabled}}" data-id="{{goodsinfo.id}}">立即购买</button>
+</view>

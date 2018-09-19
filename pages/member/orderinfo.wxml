@@ -1,0 +1,97 @@
+<!--pages/member/orderinfo.wxml-->
+
+<view class='tishitu' wx:if = "{{orderinfo.order_state == 1 && orderinfo.apply_for == 0}}">
+    <text>还没付款哦</text>
+    <image src='../../images/arrearage.png'></image>
+</view>
+
+<view class='tishitu' wx:if = "{{orderinfo.order_state == 2 && orderinfo.apply_for == 0}}">
+    <text>打包发货中</text>
+    <image src='../../images/daifh.png'></image>
+</view>
+
+<view class='tishitu' wx:if = "{{orderinfo.order_state == 3 && orderinfo.apply_for == 0}}">
+    <text>火速配送中</text>
+    <image src='../../images/yifh.png'></image>
+</view>
+
+<view class='tishitu' wx:if = "{{orderinfo.order_state == 4 && orderinfo.apply_for == 0}}">
+    <text>谢谢惠顾</text>
+    <image src='../../images/yish.png'></image>
+</view>
+
+<view class='tishitu' wx:if = "{{orderinfo.order_state == 9 && orderinfo.apply_for == 0}}">
+    <text>订单已取消</text>
+    <image src='../../images/orderqx.png'></image>
+</view>
+
+<view class='tishitu' wx:if = "{{orderinfo.apply_for == 2 && orderinfo.after_sale_state == 0}}">
+    <text>正在安排售后</text>
+    <image src='../../images/daifh.png'></image>
+</view>
+<view class='tishitu' wx:if = "{{orderinfo.apply_for == 2 && orderinfo.after_sale_state == 1}}">
+    <text>售后处理中</text>
+    <image src='../../images/shouhouclz.png'></image>
+</view>
+<view class='tishitu' wx:if = "{{orderinfo.apply_for == 2 && orderinfo.after_sale_state == 2}}">
+    <text>售后拒绝处理</text>
+    <image src='../../images/shouhoujj.png'></image>
+</view>
+<view class='tishitu' wx:if = "{{orderinfo.apply_for == 2 && orderinfo.after_sale_state == 3}}">
+    <text>已解决</text>
+    <image src='../../images/shouhouyjj.png'></image>
+</view>
+
+<view class='addressinfo'>
+  <image src='../../images/addressinfo.png'></image>
+  <view class='addressinfos' wx:if="{{orderinfo.deliver_type == 1}}">
+    <text class='name'>{{orderinfo.addressee}}</text>
+    <text class='tel'>{{orderinfo.addressee_tel}}</text>
+    <view class='address'>{{orderinfo.community_name}} {{orderinfo.address}}</view>
+  </view>
+  <view class='addressinfos' wx:if="{{orderinfo.deliver_type == 2}}">
+    <text class='store_address' >{{orderinfo.store_address}}</text>
+  </view>
+</view>
+<view class="goodslists">
+  <view class='goodslist'  wx:for="{{orderinfo.order_goods}}"  wx:for-item="v"  wx:key="k">
+      <image src='{{realm_name}}{{v.goods_img}}' class='goodsimg'></image>
+      <view class='info'>
+        <view class='goodsname'>{{v.goods_name}}</view>
+        <text class='goodsspec' wx:if="{{v.price_spec_name}}">{{v.price_spec_name}}</text>
+      </view>
+      <view class='price'>
+        <text class='prices'>￥{{v.buy_price}}</text>
+        <text class='number'>x {{v.buy_number}}</text>
+      </view>
+  </view>
+  <view class='orderprices'>
+    <view class='pricesinfo'>
+      <view class='num'>
+        <text class='yunfei'>￥{{orderinfo.freight}}</text>
+        <text>￥{{orderinfo.order_price}}</text>
+      </view>
+      <view>
+        <text class='yunfei'>运费：</text>
+        <text>共{{orderinfo.goods_count}}件商品  合计：</text>
+      </view>
+    </view>
+  </view>
+
+  
+</view>
+<view class='orderinfo'>
+  <view class="title"><text>订单信息</text></view>
+  <view class='info'><text class='tl'>订单号:</text><text>{{orderinfo.orderno}}</text></view>
+  <view class='info'><text class='tl'>收货码:</text><text style='color:#009999;font-size:30rpx;'>{{orderinfo.take_delivery_code}}</text></view>
+  <view class='info'><text class='tl'>下单时间:</text><text>{{orderinfo.addtime}}</text></view>
+  <view class='info' wx:if="{{orderinfo.order_state > 1}}"><text class='tl'>支付方式:</text><text>{{orderinfo.pay_type ==1 ?"余额支付":"微信支付"}}</text></view>
+  <view class='info' wx:if="{{orderinfo.order_state > 1}}"><text class='tl'>支付时间:</text><text>{{orderinfo.paytime}}</text></view>
+</view>
+
+<view class='orderinfo' wx:if = "{{orderinfo.apply_for == 2}}">
+  <view class="title"><text>售后信息</text></view>
+  <view class='info'><text class='tl'>联系电话:</text><text>{{orderinfo.after_sale_tel}}</text></view>
+  <view class='info'><text class='tl'>原因:</text><text >{{orderinfo.after_sale_reason}}</text></view>
+</view>
+<view style='height:20rpx;'></view>

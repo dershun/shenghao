@@ -1,0 +1,26 @@
+<!--pages/zhongcou/index.wxml-->
+<view class='body'>
+  <swiper class="banner" circular="true" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color="#ccc9" indicator-active-color="#009999">
+    <block>
+      <swiper-item wx:for="{{imgUrls}}"  wx:key="key">
+        <navigator   open-type="navigateTo" url='{{item.url}}'><image src="{{item.src}}" class="slide-image" /></navigator>
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <view class="goods_main">
+    <navigator class="goods_list"  wx:for="{{goodslist}}"  wx:key="key" open-type="navigateTo" url='/pages/zhongcou/zcgoodsinfo?id={{item.id}}'>
+        <view class="goods_thumb">
+          <image src="{{item.img_src}}"></image>
+        </view>
+        <view class="goods_content">
+          <view class="goods_title">{{item.goods_title}}</view>
+          <view class="goods_synopsis">{{item.synopsis}}</view>
+        </view>
+        <view class="goods_more_info">
+            <text class="goods_price">￥{{item.min_price}}</text><text>起</text>
+        </view>
+    </navigator>
+  </view>
+  
+</view>

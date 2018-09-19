@@ -1,0 +1,19 @@
+<!--pages/member/binding_phone.wxml-->
+
+<form bindsubmit="formSubmit" bindreset="formReset" class='form'>
+
+  <view class="section">
+    <view class="section__title"><image src="../../images/thone.png" class='youjt'></image></view>
+    <input name="tel" type="number"  cursor-spacing="50" placeholder="请输入绑定的手机号" maxlength="11" bindinput="inputtel"  value='{{userinfo.tel}}'/>
+  </view>
+
+  <view class="section">
+    <view class="section__title"><image src="../../images/yanzhengma.png" class='youjt'></image></view>
+    <input name="code" type="number"  cursor-spacing="50" placeholder="请输入短信验证码" maxlength="6" />
+    <button class='code_click' bindtap="getcode" plain="true"  disabled="{{is_send}}" >{{codetext}}</button>
+  </view>
+  <view class='btn-area'>
+    <button form-type='submit'>提交保存</button>
+  </view>
+
+</form>

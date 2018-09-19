@@ -1,0 +1,72 @@
+{
+  "pages":[
+    
+    "pages/index/index",
+    "pages/goods/index",
+    "pages/goods/goodsinfo",
+    "pages/goods/label_goods",
+    "pages/zhongcou/index",
+    "pages/zhongcou/zcgoodsinfo",
+    "pages/zhongcou/myzclist",
+    "pages/cart/index",
+    "pages/cart/jiesuan",
+    "pages/cart/choiceaddress",
+    "pages/member/cancel_order",
+    "pages/member/after_sale",
+    "pages/member/paypasswd",
+    "pages/member/index",
+    "pages/member/orderlist",
+    "pages/member/orderinfo",
+    "pages/member/binding_phone",
+    "pages/member/set_up",
+    "pages/member/recharge",
+    "pages/address/addresslist",
+    "pages/address/addaddress",
+    "pages/prompt/buyok",
+    "pages/prompt/payerror"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#009999",
+    "navigationBarTitleText": "盛好超市",
+    "navigationBarTextStyle":"#fff",
+    "backgroundColor": "#eeeeee",
+    "onReachBottomDistance":10
+  },
+  "tabBar": {
+    "color":"#666666",
+    "selectedColor":"#009999",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/home_active.png"
+      },
+      {
+        "pagePath": "pages/goods/index",
+        "text": "分类",
+        "iconPath": "images/fenlei.png",
+        "selectedIconPath":"images/fenlei_active.png"
+      },
+      {
+        "pagePath": "pages/zhongcou/index",
+        "text": "预售",
+        "iconPath": "images/zhongcou.png",
+        "selectedIconPath": "images/zhongcou_active.png"
+      },
+      {
+        "pagePath": "pages/cart/index",
+        "text": "购物车",
+        "iconPath":"images/cart.png",
+        "selectedIconPath": "images/cart_active.png"
+      },
+      {
+        "pagePath": "pages/member/index",
+        "text": "个人中心",
+        "iconPath":"images/member.png",
+        "selectedIconPath": "images/member_active.png"
+      }
+    ]
+  }
+}

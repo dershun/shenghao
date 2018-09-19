@@ -1,0 +1,43 @@
+/* pages/member/cancel_order.wxss */
+
+.hide{
+  display: none;
+}
+
+
+.section{
+  width:600rpx;
+  background: #fff;
+  border-bottom:solid #F7F7F7 1rpx; 
+  padding: 0 30rpx;
+  margin: 10rpx auto;
+}
+
+.section > textarea{
+  padding: 20rpx 0;
+  font-size: 28rpx;
+  height: 150rpx;
+}
+
+.section > .code_click{
+  border: #009999 solid 1rpx;
+  border-radius: 20rpx;
+  height: 65rpx;
+  line-height: 65rpx;
+  font-size: 28rpx;
+  color: #009999;
+  margin-top: 18rpx;
+}
+
+.btn-area{
+  margin-top: 30rpx;
+}
+
+.btn-area > button{
+  width: 50%;
+  height: 88rpx;
+  position: relative;
+  border: #009999;
+  background: #009999;
+  color: #fff;
+}

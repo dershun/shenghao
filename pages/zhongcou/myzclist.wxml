@@ -1,0 +1,68 @@
+<!--pages/zhongcou/myzclist.wxml-->
+<view class="goods_nav">
+  <view  wx:for="{{typelist}}"  wx:key="key" class='{{type == item.type?"goods_nav_active":""}}'  data-type="{{item.type}}"  bindtap="ordertype">{{item.name}}  </view>
+</view>
+
+<view style='height:80rpx;'></view>
+
+<view class="no_order" style='display:{{is_order ?"none":"flex" }};'>
+  <image src='../../images/no_order.png'></image>
+  <text>您暂无相关订单</text>
+</view>
+
+<navigator class='orderlist' wx:for="{{orderlist}}"  wx:key="key"  url='/pages/member/orderinfo?id={{item.id}}'>
+  <view class='orderinfo'>
+    <text class='orderon'>订单号：{{item.orderno}}</text>
+    <text class="ordertype">{{item.price_name}}</text>
+  </view>
+  <view class='goodslist' wx:for="{{item.order_goods}}"  wx:for-item="v"  wx:key="k">
+    <image src='{{v.goods_img ?realm_name:""}}{{v.goods_img ?v.goods_img:""}}' class='goodsimg'></image>
+    <!-- <view class='info'>
+      <view class='goodsname'>{{v.goods_name}}</view>
+      <text class='goodsspec'>{{v.price_spec_name}}</text>
+    </view>
+    <view class='price'>
+      <text class='prices'>￥{{v.buy_price}}</text>
+      <text class='number'>x {{v.buy_number}}</text>
+    </view> -->
+  </view>
+  <view class='orderprices'>
+    <view class='pricesinfo'>
+      <view class='num'>
+        <text class='yunfei'>￥{{item.freight}}</text>
+        <text>￥{{item.order_price}}</text>
+      </view>
+      <view>
+        <text class='yunfei'>运费：</text>
+        <text>共{{item.goods_count}}件商品  合计：</text>
+      </view>
+    </view>
+  </view>
+  <view class='operation'>
+    <!-- <view class='cancel' wx:if="{{item.order_state < 4 && item.apply_for == 0}}"  bindtap="cancel_order" data-id="{{item.id}}">取消订单</view> -->
+    <view wx:if="{{item.order_state == 4 && item.apply_for == 0}}"  bindtap="after_sale" data-id="{{item.id}}">申请售后</view>
+    <view wx:if="{{item.order_state == 1}}"  bindtap="choice_pay" data-orderno="{{item.orderno}}" >立即支付</view>
+  </view>
+</navigator>
+
+<view class='zz' style="display:{{immediately_pay ?'block':'none'}};">
+  <view class='pay_mode'>
+    <view class='title'>选择支付方式 <image src='../../images/out.png' class='out'   bindtap="out_pay"></image></view>
+    <radio-group class="radio-group" bindchange="pay_mode">
+        <view class="p_select">
+          <radio class="check " value="2" checked="" color="#009999"/>
+          <view class="p_text">微信支付</view>
+        </view>
+        <view class="p_select">
+            <radio class="check " value="1" checked="" color="#009999"/>
+            <view class="p_text">余额支付（{{asset}}）   </view>
+        </view>
+    </radio-group>
+    <view class="btn-area">
+      <button   bindtap="immediately_pay">立即支付</button>
+    </view>
+  </view>
+</view>
+
+
+<view style='height:20rpx;'></view>

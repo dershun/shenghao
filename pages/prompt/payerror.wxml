@@ -1,0 +1,8 @@
+<view class="okimg">
+  <image src="/images/error.png"></image>
+</view>
+<view class="oktext">支付失败</view>
+<navigator  open-type="switchTab" url='/pages/member/index'>
+<button class="gotomember" >前往会员中心</button>
+</navigator>
+<view class="tel" bindtap="phonecall" data-tel="{{systematic.tel}}">客服电话：{{systematic.tel}}</view>

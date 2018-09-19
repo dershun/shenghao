@@ -1,0 +1,64 @@
+/* pages/member/after_sale.wxss */
+@import "/public/common.wxss";
+
+.hide{
+  display: none;
+}
+
+.section{
+  background: #fff;
+  border-bottom:solid #F7F7F7 1rpx; 
+  display: flex;
+  padding: 0 30rpx;
+  margin-top: 10rpx;
+}
+.section .section__title{
+  width:100rpx;
+  font-size:28rpx;
+  height:100rpx;
+  line-height:100rpx;
+  text-align: center;
+}
+
+.section .section__title image{
+  width: 50rpx;
+  height: 50rpx;
+  margin-top: 25rpx;
+}
+
+.section > input{
+  flex: 1;
+  height: 100rpx;
+  line-height:100rpx;
+  font-size: 28rpx;
+}
+
+.section > textarea{
+  flex: 1;
+  height: 350rpx;
+  font-size: 28rpx;
+  padding: 30rpx 10rpx;
+}
+
+.section > .code_click{
+  border: #009999 solid 1rpx;
+  border-radius: 20rpx;
+  height: 65rpx;
+  line-height: 65rpx;
+  font-size: 28rpx;
+  color: #009999;
+  margin-top: 18rpx;
+}
+
+.btn-area{
+  margin-top: 30rpx;
+}
+
+.btn-area > button{
+  width: 50%;
+  height: 88rpx;
+  position: relative;
+  border: #009999;
+  background: #009999;
+  color: #fff;
+}

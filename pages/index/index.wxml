@@ -1,0 +1,51 @@
+<swiper class="banner" circular="true" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color="#ccc9" indicator-active-color="#009999">
+  <block>
+    <swiper-item wx:for="{{imgUrls}}"  wx:key="key">
+      <navigator   open-type="navigateTo" url='{{item.url}}'><image src="{{item.src}}" class="slide-image" /></navigator>
+    </swiper-item>
+  </block>
+</swiper>
+<view class="index_nav">
+  <!-- <view>
+    <image src="/images/index_nav_3.png"></image>
+    <text>物业维修</text>
+  </view>
+  <view>
+    <image src="/images/index_nav_4.png"></image>
+    <text>快递</text>
+  </view> -->
+  <view wx:for="{{home_classify}}"  wx:key="key" data-id="{{item.id}}" data-pid="{{item.pid}}"  bindtap="goodsclassify" >
+    <image src="{{item.img_src}}"></image>
+    <text>{{item.name}}</text>
+  </view>
+</view>
+
+<view class="goods_main"  wx:for="{{home_label_goods}}"  wx:key="key" >
+  <navigator class='label_ad' open-type="navigateTo" url='/pages/goods/label_goods?id={{item.id}}'><image src='{{realm_name}}{{item.src}}'></image></navigator>
+  <navigator class="goods_list"  wx:for="{{item.goodslist}}" wx:for-item="v"  wx:key="key"  open-type="navigateTo" url='/pages/goods/goodsinfo?id={{v.id}}'>
+    <view class='label' style='background: {{item.colour}};'><view>{{item.name}}</view><text style='border-top: 16rpx solid {{item.colour}};'></text></view>
+    <view class="goods_thumb">
+      <image src="{{v.img_src}}"></image>
+    </view>
+    <view class="goods_content">
+      <view class="goods_title">{{v.goods_name}}</view>
+      <view class="goods_more_info">
+        <view class="goods_price">￥{{v.price}}</view>
+        <text class="goods_oldprice">￥{{v.oldprice}}</text>
+      </view>
+    </view>
+  </navigator>
+</view>
+
+<view class="space"></view>
+<view class="chongzhi">
+  <view class="title">------会员充值------</view>
+  <view class="space"></view>
+  <view class="chongzhiinput">
+    <view class="chongzhititle" style='width:180rpx;'>充值金额：</view>
+    <input value='' type='number' bindinput="exitrecharge" placeholder="请输入充值金额"></input>
+  </view>
+  <view class="space"></view>
+  <button class="chongzhi_button" bindtap="add_order" >立即充值</button>
+</view>
+<view class="space"></view>

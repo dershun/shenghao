@@ -1,0 +1,194 @@
+/* pages/member/index.wxss */
+@import "/public/common.wxss";
+button::after{
+border: none;
+}
+
+.hide{
+  
+}
+
+.login {
+  height: 120rpx;
+  background: #009999;
+  padding: 20rpx;
+  display: flex;
+  flex-direction:row;
+
+}
+.login .avatarurl{
+  width: 120rpx;
+  height: 120rpx;
+  margin-left: 20rpx;
+}
+
+.login .avatarurl image{
+  width: 100%;
+  height: 100%;
+}
+
+.login .logintishi{
+  flex: 1;
+  display: flex;
+  flex-direction:row;
+  background:#009999;
+  text-align:left;
+  line-height:40rpx;
+  padding:0;
+}
+
+.logintishi .info{
+  flex: 1;
+  color: #fff;
+  margin-left: 30rpx;
+  margin-top: 10rpx;
+}
+
+ .logintishi .info .logins{
+   font-size: 36rpx;
+}
+
+ .logintishi .info .logints{
+   font-size: 26rpx;
+   color: #eee;
+   margin-top: 10rpx;
+}
+
+.logintishi .yjt{
+  width: 80rpx;
+  height: 80rpx;
+  margin-top: 20rpx;
+}
+
+.logintishi .yjt image{
+  width: 100%;
+  height: 100%;
+}
+
+.userinfo {
+  height: 120rpx;
+  background: #009999;
+  padding: 20rpx;
+  display: flex;
+  flex-direction:row;
+
+}
+.userinfo .avatarurl{
+  width: 120rpx;
+  height: 120rpx;
+  margin-left: 20rpx;
+}
+
+.userinfo .avatarurl image{
+  width: 100%;
+  height: 100%;
+}
+
+.userinfo .userinfotishi{
+  flex: 1;
+  display: flex;
+  flex-direction:row;
+  background:#009999;
+  text-align:left;
+  line-height:40rpx;
+  padding:0;
+}
+
+.userinfotishi .info{
+  flex: 1;
+  color: #fff;
+  margin-left: 30rpx;
+  margin-top: 10rpx;
+}
+
+ .userinfotishi .info .userinfos{
+   font-size: 32rpx;
+}
+
+ .userinfotishi .info .userinfots{
+   font-size: 26rpx;
+   color: #eee;
+   margin-top: 10rpx;
+   display: flex;
+}
+
+ .userinfotishi .info .userinfots .type{
+   font-size: #fff;
+   background: #CC9900;
+   padding: 5rpx 30rpx;
+   border-radius: 30rpx;
+}
+
+.userinfotishi .info .userinfots .member_asset{
+  flex: 1;
+  font-size: #fff;
+  text-align: right;
+}
+
+
+.userinfotishi .yjt{
+  width: 45rpx;
+  height: 45rpx;
+  margin-right: 20rpx;
+}
+
+.userinfotishi .yjt image{
+  width: 100%;
+  height: 100%;
+}
+
+.orderstatelist{
+  background: #fff;
+  height: 140rpx;
+  margin-top: 15rpx;
+  display: flex;
+}
+
+.orderstatelist .list{
+  flex: 1;
+  text-align: center;
+  margin-top: 20rpx;
+}
+
+.orderstatelist .list image{
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.orderstatelist .list text{
+  font-size: 24rpx;
+  display: block;
+}
+
+.service_list{
+  background: #fff;
+  margin-top: 20rpx;
+}
+
+.service_list .service{
+  height: 100rpx;
+  display: flex;
+  flex-direction:row;
+}
+
+.service .tubiao{
+  width: 60rpx;
+  height: 60rpx;
+  margin-left: 20rpx;
+  margin-top: 20rpx;
+}
+
+.service .title{
+  flex: 1;
+  font-size: 26rpx;
+  line-height: 100rpx;
+  margin-left: 20rpx;
+}
+
+.service .youjt{
+  width: 40rpx;
+  height: 40rpx;
+  float: right;
+  margin-top: 30rpx;
+  margin-right: 20rpx;
+}

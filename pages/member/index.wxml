@@ -1,0 +1,76 @@
+<!--pages/member/index.wxml-->
+<view class='login' style='display: {{is_login ?"none":"flex"}};'>
+  <view class="avatarurl">
+    <image src="../../images/avatarurl.png"></image>
+  </view>
+  <button class='logintishi' lang="zh_CN" open-type="getUserInfo" bindgetuserinfo="getwechatinfo">
+      <view class='info'>
+        <view class='logins'>点击登陆</view>
+        <view class='logints'>登陆获取更多权限</view>
+      </view>
+      <view class='yjt'><image src="../../images/login_yjt.png"></image></view>
+  </button>
+</view>
+
+<view class='userinfo' style='display: {{is_login ?"flex":"none"}};'>
+  <view class="avatarurl">
+    <image src="{{userinfo.avatarurl}}"></image>
+  </view>
+  <view class='userinfotishi' >
+      <view class='info'>
+        <view class='userinfos'>{{userinfo.nickname}}</view>
+        <view class='userinfots'>
+          <text class="type">普通会员</text>
+          <text class="member_asset">账户余额：{{asset}}</text>
+        </view>
+      </view>
+      <navigator class='yjt' url="/pages/member/set_up" ><image src="../../images/set_up.png"></image></navigator>
+  </view>
+</view>
+
+<view class='orderstatelist'>
+  <view class="list" bindtap="open_page" data-url="/pages/member/orderlist?state=all&uid={{userinfo.id}}" data-login="true" >
+    <image src="../../images/orderall.png"></image>
+    <text>全部订单</text>
+  </view>
+  <view class="list" bindtap="open_page" data-url="/pages/member/orderlist?state=dpay&uid={{userinfo.id}}" data-login="true">
+    <image src="../../images/arrearage.png"></image>
+    <text>待付款</text>
+  </view>
+  <view class="list" bindtap="open_page" data-url="/pages/member/orderlist?state=dsh&uid={{userinfo.id}}" data-login="true">
+    <image src="../../images/daishouhuo.png"></image>
+    <text>待收货</text>
+  </view>
+  <view class="list" bindtap="open_page" data-url="/pages/member/orderlist?state=as&uid={{userinfo.id}}" data-login="true">
+    <image src="../../images/After_sale.png"></image>
+    <text>售后</text>
+  </view>
+  <view class="list" bindtap="open_page" data-url="/pages/member/recharge" data-login="true">
+    <image src="../../images/chongzhi.png"></image>
+    <text>充值</text>
+  </view>
+</view>
+
+<view class='service_list'>
+  <view class='service' bindtap="open_page" data-url="/pages/address/addresslist" data-login="true">
+    <image src="../../images/address.png" class='tubiao'></image>
+    <view class='title'>我的地址</view>
+    <image src="../../images/more.png" class='youjt'></image>
+  </view>
+  <view class='service' bindtap="open_page" data-url="/pages/zhongcou/myzclist?uid={{userinfo.id}}" data-login="true">
+    <image src="../../images/zhongcou_active.png" class='tubiao' ></image>
+    <view class='title'>我的预购</view>
+    <image src="../../images/more.png" class='youjt'></image>
+  </view>
+  <!-- <view class='service'>
+    <image src="../../images/weixiu.png" class='tubiao'></image>
+    <view class='title'>我的维修</view>
+    <image src="../../images/more.png" class='youjt'></image>
+  </view> -->
+  <view class='service' bindtap="phonecall" data-tel="{{systematic.tel}}">
+    <image src="../../images/kefu.png" class='tubiao'></image>
+    <view class='title'>联系客服</view>
+    <image src="../../images/more.png" class='youjt'></image>
+  </view>
+  
+</view>

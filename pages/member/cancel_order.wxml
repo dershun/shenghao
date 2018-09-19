@@ -1,0 +1,11 @@
+<!--pages/member/cancel_order.wxml-->
+
+<form bindsubmit="formSubmit" bindreset="formReset" class='form'>
+  <view class="section">
+    <textarea name="reason" placeholder="请输入取消理由，以便我们更好的为您服务" />
+  </view>
+
+  <view class="btn-area">
+    <button formType="submit">提交申请</button>
+  </view>
+</form>

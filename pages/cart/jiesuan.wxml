@@ -1,0 +1,82 @@
+<view class="nav_title">配送方式</view>
+<radio-group class="radio-group" bindchange="dispatching">
+<view class="p_select">
+  <radio class="check padding_left_20" value="1" checked="" color="#009999"/>
+  <view class="p_text">送货上门</view>
+  <view class="p_info">预计送达</view>
+</view>
+<view class="p_select">
+  <radio class="check padding_left_20" value="2" checked="" color="#009999"/>
+  <view class="p_text">用户自提</view>
+  <view class="p_info"> {{store_name}} </view>
+</view>
+</radio-group>
+
+<view class='nav_title {{dispatching == 1?"":"hide" }}'>配送地址 <view  class='huanaddress  {{dispatching == 1 && is_address?"":"hide" }}' bindtap="choiceaddress">换一个</view></view>
+<view class='p_select  {{dispatching == 1 && !is_address?"":"hide" }}' bindtap="addaddress">
+  <view class="padding_left_20 p_address">新增地址</view>
+  <view class="more">
+    <image src="/images/more.png"></image>
+  </view>
+</view>
+
+<view class='p_select2  {{dispatching == 1 && is_address?"":"hide" }}'>
+  <view class="nametel"><view class='name'>{{address.name}}</view><view class='tel'>{{address.tel}}</view></view>
+  <view class="address">{{address.community_name}} {{address.address}}</view>
+</view>
+
+<view class='nav_title {{dispatching == 2?"":"hide" }}'>门店地址</view>
+<view class='p_select  {{dispatching == 2?"":"hide" }}'>
+  <view class="padding_left_20 p_address">
+    <picker name="community_id" bindchange="storeaddress"  value="{{index}}"  range="{{store}}">
+    <view class="picker">
+      {{storeaddress}}
+    </view>
+    </picker>
+  </view>
+  <view class="more">
+    <image src="/images/more.png"></image>
+  </view>
+</view>
+
+<view class="nav_title">采购清单</view>
+<view class="goods_main">
+
+  <view class="goods_list"  wx:for="{{goodslist}}"  wx:key="key">
+    <navigator class="goods_thumb"  open-type="navigateTo" url='/pages/goods/goodsinfo?id={{item.id}}'>
+      <image src="{{item.img_src}}"></image>
+    </navigator>
+    <view class="goods_content">
+      <navigator class="goods_title"  open-type="navigateTo" url='/pages/goods/goodsinfo?id={{item.id}}'>{{item.goods_name}}</navigator>
+      <view class="goods_more_info">
+        <view class='goods_price '>{{item.price}}{{order_type == 2?"":"元/"}}{{item.spec_name}}</view>
+        <view>*{{item.number}}</view>
+      </view>
+    </view>
+  </view>
+  
+  <view class="p_select">
+    <view class="padding_left_20 p_address">共计{{goodssum}}件商品</view>
+    <view class="padding_right_20 postage">运费：{{postage}}</view>
+    <view class="padding_right_20">合计：{{total}}</view>
+  </view>
+</view>
+<view class="space"></view>
+
+<view class="nav_title">支付方式</view>
+<radio-group class="radio-group" bindchange="pay_mode">
+  <view class="p_select">
+    <radio class="check padding_left_20" value="2" checked="" color="#009999"/>
+    <view class="p_text">微信支付</view>
+  </view>
+  <view class="p_select">
+      <radio class="check padding_left_20" value="1" checked="" color="#009999"/>
+    <view class="p_text" style='flex:1;'>余额支付（{{asset}}）</view>
+  </view>
+</radio-group>
+<view class="margin-bottom"></view>
+<view class="space"></view>
+<view class="footer {{isix?'fix-iphonex-button':''}}">
+  <view class="all_money">合计金额:￥{{total}}</view>
+  <view class="now_buy"  bindtap="add_order">立即支付</view>
+</view>

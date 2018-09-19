@@ -1,0 +1,64 @@
+/* pages/cart/choiceaddress.wxss */
+@import "/public/common.wxss";
+.addresslist{
+  
+  
+}
+
+.addressinfo{
+  background: #fff;
+  display: flex;
+  padding: 20rpx 0;
+}
+
+.addressinfo .check{
+  line-height:90rpx;
+  width:80rpx;
+  height:100rpx;
+  margin-left: 20rpx;
+}
+
+.addressinfo .addresss{
+  flex: 1;
+
+}
+
+.addresss .nametel{
+  display: flex;
+  font-size: 30rpx;
+}
+
+.addresss text{
+  flex: 1;
+  color: #777;
+}
+
+.addresss .tel{
+  text-align: right;
+  margin-right:40rpx;
+}
+
+.addresss .address{
+  margin-top:15rpx; 
+  font-size: 26rpx;
+  color: #777;
+  margin-right:30rpx;
+
+}
+
+
+.btn-area{
+  position: absolute;
+  bottom: 0;
+  display: block;
+  width: 698rpx;
+  border-top :#ccc solid 1rpx;
+  padding: 10px 26rpx;
+}
+
+.btn-area > button{
+  position: relative;
+  border: #009999;
+  background: #009999;
+  color: #fff;
+}

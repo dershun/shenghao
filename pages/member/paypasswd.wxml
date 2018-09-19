@@ -1,0 +1,23 @@
+<!--pages/member/paypasswd.wxml-->
+
+<form bindsubmit="formSubmit" bindreset="formReset" class='form'>
+  <view class="section">
+    <view class="section__title"><image src="../../images/password.png" class='youjt'></image></view>
+    <input name="pay_password" type="number"  cursor-spacing="50" password="true" placeholder="请输入6位数字密码" maxlength="6" />
+  </view>
+
+  <view class="section">
+    <view class="section__title"><image src="../../images/thone.png" class='youjt'></image></view>
+    <input name="tel" type="number"  cursor-spacing="50" placeholder="请输入手机号" maxlength="11" bindinput="inputtel" disabled="{{userinfo.state == 1 && userinfo.tel  ?'true':''}}" value='{{userinfo.tel}}'/>
+  </view>
+
+  <view class="section">
+    <view class="section__title"><image src="../../images/yanzhengma.png" class='youjt'></image></view>
+    <input name="code" type="number"  cursor-spacing="50" placeholder="请输入短信验证码" maxlength="6" />
+    <button class='code_click' bindtap="getcode" plain="true"  disabled="{{is_send}}" >{{codetext}}</button>
+  </view>
+  <view class='btn-area'>
+    <button form-type='submit'>提交保存</button>
+  </view>
+
+</form>

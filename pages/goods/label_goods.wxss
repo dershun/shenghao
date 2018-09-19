@@ -1,0 +1,82 @@
+/* pages/goods/label_goods.wxss */
+@import "/public/common.wxss";
+page{
+  height:100%;
+}
+.fenlei{
+  display:flex;
+  flex-direction: column;
+  height:100%;
+}
+.fenlei .fenlei_img{
+  width: 750rpx;
+}
+
+.fenlei .fenlei_img image{
+  width: 750rpx;
+  height: 300rpx;
+}
+
+.goods_main{
+  /* overflow-y:auto; */
+}
+
+.goods_list{
+  display:flex;
+  flex-direction: row;
+  height:150rpx;
+  background-color:#fff;
+  padding:20rpx;
+  font-size:24rpx;
+  border-bottom:1px solid #efefef;
+}
+.goods_thumb{
+  width:150rpx;
+}
+.goods_thumb>image{
+  width:150rpx;
+  height:150rpx;
+}
+.goods_content{
+  flex:1;
+  padding-left:20rpx;
+  display:flex;
+  flex-direction: column;
+}
+.goods_title{
+  flex:1;
+}
+.goods_more_info{
+  height:60rpx;
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  color:#F59800;
+  
+}
+.goods_price{
+  flex:1;
+  font-size:28rpx;
+}
+.goods_oldprice{
+  margin-left: 10rpx;
+  font-size:24rpx;
+  color: #aaa;
+  text-decoration:line-through;
+}
+.goods_more_info>input{
+  width:40rpx;
+  text-align:center;
+}
+.goods_button{
+  height:60rpx;
+  width:200rpx;
+  line-height:60rpx;
+  font-size:28rpx; 
+  background-color:#F59800;
+  color:#fff;
+}
+.goods_plus{
+  width:40rpx!important;
+  height:40rpx!important;
+}

@@ -1,0 +1,31 @@
+<!--pages/member/addaddress.wxml-->
+<form bindsubmit="formSubmit" bindreset="formReset">
+  <view class="section">
+    <view class="section__title">收 件 人</view>
+    <input name="name" type="text" cursor-spacing="50" value='{{addressinfo.name}}'/>
+  </view>
+  <view class="section">
+    <view class="section__title">手 机 号</view>
+    <input name="tel" type="number" cursor-spacing="50" maxlength='11' value='{{addressinfo.tel}}'/>
+  </view>
+  <view class="section">
+    <view class="section__title">小区名称</view>
+    <picker name="community_id" bindchange="pickercommunity"  value="{{index}}"  range="{{community}}">
+    <view class="picker">
+      {{community[index]}}
+    </view>
+    </picker>
+  </view>
+  <view class="section">
+    <view class="section__title">详细地址</view>
+    <input name="address" type="text" cursor-spacing="50" value='{{addressinfo.address}}'/>
+  </view>
+  <view class="section" wx:if="{{addressinfo.id}}">
+    <view class="section__title">设为默认地址</view>
+    <view class='switch'><switch bindchange="morenaddress" checked='{{addressinfo.defaultaddress}}' disabled='{{addressinfo.defaultaddress}}'  color="#009999"/></view>
+  </view>
+
+  <view class="btn-area {{isix?'fix-iphonex-button':''}}">
+    <button formType="submit">保存地址</button>
+  </view>
+</form>

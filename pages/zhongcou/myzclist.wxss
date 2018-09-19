@@ -1,0 +1,230 @@
+/* pages/zhongcou/myzclist.wxss */
+@import "/public/common.wxss";
+.goods_nav{
+  position: fixed;
+  top: 0;
+  display:flex;
+  flex-direction: row;
+  height:80rpx;
+  font-size:26rpx;
+  background-color:#fff;
+  line-height:80rpx;
+  
+}
+.goods_nav>view{
+  width: 150rpx;
+  text-align:center;
+}
+.goods_nav_active{
+  border-bottom: 1px solid #009999;
+  color: #009999;
+}
+
+.orderlist{
+  margin-top: 10rpx;
+}
+
+.orderlist .orderinfo{
+  font-size: 26rpx;
+  background: #fff;
+  height: 80rpx;
+  line-height: 80rpx;
+  display: flex;
+  flex-direction:row;
+  padding: 0 20rpx;
+}
+
+.orderinfo .orderon{
+  flex: 1;
+}
+
+.orderinfo .ordertype{
+  width: 120rpx;
+  text-align: center;
+  color: #f00
+}
+
+.orderlist .goodslist{
+  padding: 0 20rpx;
+  display: flex;
+  flex-direction: row;
+}
+
+.goodslist .goodsimg{
+  width: 130rpx;
+  height: 130rpx;
+  margin-top: 10rpx;
+  float: left;
+}
+
+.goodslist .info{
+  flex: 1;
+  margin-top: 10rpx;
+  margin-left: 20rpx;
+}
+
+.goodslist .info .goodsname{
+  font-size: 24rpx;
+  margin-top:10rpx;
+}
+
+.goodslist .info .goodsspec{
+  font-size: 22rpx;
+  padding: 5rpx 20rpx;
+  background: #ddd;
+  border-radius: 10rpx;
+  margin: 0 5rpx;
+}
+
+.goodslist .price{
+  display: flex;
+  flex-direction:column;
+  font-size: 22rpx;
+  text-align: right;
+  margin-left: 10rpx;  
+}
+
+.goodslist .price .prices{
+  font-size: 24rpx;
+  margin-top: 20rpx;
+}
+
+.goodslist .price .number{
+  margin-top: 20rpx;
+}
+
+.orderlist .orderprices{
+  background: #fff;
+  margin-top:20rpx;
+
+}
+.orderprices .pricesinfo{
+  font-size: 24rpx;
+  padding: 20rpx;
+  text-align: right;
+  display: flex;
+  flex-direction: row-reverse;
+  
+}
+.orderprices .pricesinfo view{
+  display: flex;
+  flex-direction: column;
+  float: right;
+}
+.orderprices .pricesinfo text{
+  display: inline-block;
+}
+
+.orderprices .pricesinfo .num{
+  margin-left: 10rpx;
+  
+}
+
+.orderprices .pricesinfo .yunfei{
+  color: #aaa;
+  margin-bottom: 10rpx;
+}
+
+.orderlist .operation{
+  background: #fff;
+  display: flex;
+  flex-direction: row-reverse;
+  padding-bottom: 20rpx;
+}
+
+.orderlist .operation view{
+  font-size: 24rpx;
+  border: #009999 solid 1rpx;
+  color: #009999;
+  padding: 5rpx 10rpx; 
+  border-radius: 10rpx;
+  margin-right: 30rpx;
+}
+
+.orderlist .operation .cancel{
+  color: #f00;
+  border: #f00 solid 1rpx;
+}
+
+.no_order{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 100rpx;
+}
+
+.no_order image{
+  width: 150rpx;  
+  height: 150rpx; 
+  margin: 0 auto;
+}
+.no_order text{
+  font-size: 36rpx;
+  margin-top: 30rpx;
+  color: #999;
+}
+
+.zz{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #0003;
+}
+
+.pay_mode{
+  position: fixed;
+  bottom: 0;
+  padding: 20rpx;
+  width: 710rpx;
+  background: #fff;
+}
+
+.pay_mode .btn-area{
+  display: block;
+  width: 300rpx;
+  padding: 10px 26rpx;
+  margin: 0 auto;
+}
+
+.pay_mode .btn-area > button{
+  width: 300rpx;
+  position: relative;
+  border: #009999;
+  background: #009999;
+  color: #fff;
+  font-size: 26rpx;
+}
+
+.pay_mode .title{
+  font-size: 32rpx;
+  text-align: center;
+  height: 80rpx;
+}
+
+.pay_mode .title .out{
+  width: 30rpx;
+  height: 30rpx;
+  float: right;
+}
+.pay_mode .p_select{
+  background:#fff;
+  width: 350rpx;
+  margin: 0 auto;
+  height:100rpx;
+  display:flex;
+  flex-direction: row;
+  font-size:28rpx;
+  align-items: center;
+}
+
+.pay_mode .p_select>radio{
+    width:80rpx;
+    margin-left:20rpx;
+  }
+
+.pay_mode .p_text{
+  font-size:24rpx;
+  flex:1;
+}

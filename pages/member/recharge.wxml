@@ -1,0 +1,13 @@
+<!--pages/member/recharge.wxml-->
+<form bindsubmit="formSubmit" bindreset="formReset" class='form'>
+
+  <view class="section">
+    <view class="section__title"><image src="../../images/recharge.png" class='youjt'></image></view>
+    <input name="number" type="number"  cursor-spacing="50" placeholder="请输入充值金额" maxlength="11" bindinput="inputtel"/>
+  </view>
+
+  <view class='btn-area'>
+    <button form-type='submit'>立即充值</button>
+  </view>
+
+</form>

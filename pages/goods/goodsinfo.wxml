@@ -1,0 +1,27 @@
+<swiper class="goods_thumb" circular="true" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color="#ccc9" indicator-active-color="#009999">
+  <block>
+    <swiper-item  wx:for="{{goodsinfo.imgall_src}}"  wx:key="key">
+      <image src="{{realm_name}}{{item}}" class="slide-image" />
+    </swiper-item>
+  </block>
+</swiper>
+<view class="goods_info">
+  <view class="goods_title">{{goodsinfo.goods_name}}</view>
+  <view class="goods_price">￥{{goodsinfo.price}}元/{{goodsinfo.spec_name}}</view>
+  <view class="goods_moreinfo">
+    <view class="kucun">库存{{goodsinfo.stock}}件</view>
+    <view class="sales">销售{{goodsinfo.sales}}件</view>
+  </view>
+  
+</view>
+<view class="space"></view>
+  <view class="view_title">图文详情</view>
+  <rich-text class='goods_content' nodes="{{goodsinfo.content}}"></rich-text>
+<view style='height:120rpx;'></view>
+<view class="footer {{isix?'fix-iphonex-button':''}}">
+  <navigator class="home" open-type="switchTab" url='/pages/index/index' >
+    <image src="/images/home_active.png"></image>
+  </navigator>
+  <view class="join_cart" bindtap = "addcart" data-id="{{goodsinfo.id}}">加入购物车</view>
+  <view class="now_buy" bindtap = "buy" data-id="{{goodsinfo.id}}">立即购买</view>
+</view>

@@ -1,0 +1,20 @@
+<!--pages/member/set_up.wxml-->
+
+<view class='service_list'>
+  <view class='service' bindtap="open_page" data-url="/pages/member/binding_phone" data-login="true">
+    <image src="../../images/thone.png" class='tubiao'></image>
+    <view class='title'>修改手机绑定</view>
+    <image src="../../images/more.png" class='youjt'></image>
+  </view>
+  <!-- <view class='service' bindtap="open_page" data-url="/pages/member/paypasswd" data-login="true">
+    <image src="../../images/password.png" class='tubiao'></image>
+    <view class='title'>修改密码</view>
+    <image src="../../images/more.png" class='youjt'></image>
+  </view> -->
+  <view class='service out_loging' bindtap="out_loging">
+    <image src="../../images/out_loging.png" class='tubiao'></image>
+    <view class='title'>退出登陆</view>
+    <image src="../../images/more.png" class='youjt'></image>
+  </view>
+  
+</view>

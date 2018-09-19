@@ -1,0 +1,17 @@
+<!--pages/cart/choiceaddress.wxml-->
+  <radio-group class="addresslist" bindchange="pickeraddress">
+      <view class='addressinfo'  wx:for="{{addresslist}}"  wx:key="key">
+        <view class="check "><radio value="{{item.id}}" checked="{{userinfo.default_address == item.id?'true':''}}" color="#009999"/></view>
+        <view class='addresss'>
+          <view class='nametel'>
+            <text class='name'>{{item.name}}</text>
+            <text class='tel'>{{item.tel}}</text>
+          </view>
+          <view class='address'>{{item.community_name}}  {{item.address}}</view>
+        </view>
+      </view>
+  </radio-group> 
+
+  <!-- <view class="btn-area">
+    <button bindtap = "Submitaddress">确认</button>
+  </view> -->

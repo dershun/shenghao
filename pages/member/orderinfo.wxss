@@ -1,0 +1,172 @@
+/* pages/member/orderinfo.wxss */
+@import "/public/common.wxss";
+
+.tishitu{
+  height: 90rpx;
+  background: #fff;
+  padding: 30rpx 100rpx;
+  display: flex;
+  flex-direction: row;
+}
+.tishitu text{
+  flex: 1;
+  line-height: 90rpx;
+  color: #009999;
+}
+.tishitu image{
+  width: 90rpx;
+  height: 90rpx;
+}
+
+.addressinfo{
+  display: flex;
+  flex-direction: row;
+  background: #fff;
+  padding: 20rpx;
+  margin-top: 10rpx;
+}
+.addressinfo image{
+  width: 50rpx;
+  height: 50rpx
+}
+
+.addressinfo .addressinfos{
+  flex: 1;
+  margin-left: 20rpx;
+  font-size: 26rpx;
+}
+
+.addressinfo .addressinfos .name{
+  
+}
+
+.addressinfo .addressinfos .tel{
+  margin-left: 30rpx;
+  color: #aaa;
+}
+
+.addressinfo .addressinfos .address{
+  margin-top: 10rpx;
+}
+
+.addressinfo .addressinfos .store_address{
+  display: block;
+  height: 50rpx;
+  line-height: 50rpx;
+}
+
+.goodslists{
+  background: #fff;
+  margin-top: 10rpx;
+  padding: 20rpx 0;
+}
+
+.goodslists .goodslist{
+  display: flex;
+  flex-direction: row;
+  padding: 0 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.goodslist .goodsimg{
+  width: 130rpx;
+  height: 130rpx;
+  margin-top: 10rpx;
+}
+
+.goodslist .info{
+  flex: 1;
+  margin-top: 10rpx;
+  margin-left: 20rpx;
+}
+
+.goodslist .info .goodsname{
+  font-size: 24rpx;
+  margin-top:10rpx;
+}
+
+.goodslist .info .goodsspec{
+  font-size: 22rpx;
+  padding: 5rpx 20rpx;
+  background: #ddd;
+  border-radius: 10rpx;
+  margin: 0 5rpx;
+}
+
+.goodslist .price{
+  display: flex;
+  flex-direction:column;
+  font-size: 22rpx;
+  text-align: right;
+  margin-left: 10rpx;  
+}
+
+.goodslist .price .prices{
+  font-size: 24rpx;
+  margin-top: 20rpx;
+}
+
+.goodslist .price .number{
+  margin-top: 20rpx;
+}
+
+.goodslists .orderprices{
+  background: #fff;
+  margin-top:20rpx;
+
+}
+.orderprices .pricesinfo{
+  font-size: 24rpx;
+  padding: 20rpx;
+  text-align: right;
+  display: flex;
+  flex-direction: row-reverse;
+  
+}
+.orderprices .pricesinfo view{
+  display: flex;
+  flex-direction: column;
+  float: right;
+}
+.orderprices .pricesinfo text{
+  display: inline-block;
+}
+
+.orderprices .pricesinfo .num{
+  margin-left: 10rpx;
+  
+}
+
+.orderprices .pricesinfo .yunfei{
+  color: #aaa;
+  margin-bottom: 10rpx;
+}
+
+.orderinfo{
+  display: flex;
+  flex-direction: column;
+  padding:20rpx;
+  background: #fff;
+  margin-top: 10rpx;
+}
+
+.orderinfo .title{
+  font-size: 24rpx;
+  padding: 20rpx 0;
+}
+
+.orderinfo .title text{
+  border-left: solid 5rpx #009999;
+  padding-left: 10rpx;
+}
+
+.orderinfo .info{
+  font-size: 24rpx;
+  padding: 10rpx 15rpx;
+  display: flex;
+  flex-direction: row;
+}
+
+.orderinfo .info .tl{
+  width: 150rpx;
+}
