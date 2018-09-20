@@ -165,7 +165,7 @@ Page({
     var userinfo = that.data.userinfo;
     var community_id = that.data.community_id;
     var Submit = true;
-    var myreg = /^[1][3,4,5,7,8][0-9]{9}$/;
+    var myreg = /^[1][3,4,5,7,8,9][0-9]{9}$/;
     
     if (!data.name){
       wx.showToast({

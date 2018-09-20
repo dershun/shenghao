@@ -95,7 +95,7 @@ Page({
   getcode: function () {
     var that = this;
     var tel = this.data.tel;
-    var myreg = /^[1][3,4,5,7,8][0-9]{9}$/;
+    var myreg = /^[1][3,4,5,7,8,9][0-9]{9}$/;
     var submit = true;
 
     if (!tel) {
