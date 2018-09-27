@@ -17,9 +17,11 @@ App({
 
     wx.getSystemInfo({
       success: function (res) {
-        if (res.model == 'iPhone X'){
+        ther.globalData.model = res.model;
+        if (res.model.search(/iPhone X/i) > -1) {
           ther.globalData.isix = true;
-        }else{
+          
+        } else {
           ther.globalData.isix = false;
         }
       }

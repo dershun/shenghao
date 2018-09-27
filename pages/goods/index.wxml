@@ -21,8 +21,10 @@
             
             <image class="goods_plus" style='display: {{cartsall[item.id] == 0 || cartsall[item.id] == undefined?"none":"inline-block"}};' src="/images/min.png" data-type="min" data-id="{{item.id}}" bindtap="addcart" ></image>
             <input type='number' style='display: {{cartsall[item.id] == 0 || cartsall[item.id] == undefined?"none":"inline-block"}};' value="{{cartsall[item.id] < item.stock ?cartsall[item.id]:item.stock }}" disabled="true"></input>
+
             <image class="goods_plus" style='display: {{item.stock <= 0 || cartsall[item.id] >= item.stock?"none":"inline-block"}};' src="/images/plus.png" data-type="plus" data-id="{{item.id}}" data-stock="{{item.stock}}"  bindtap="addcart" ></image>
-            <image class="goods_plus" style='display: {{item.stock <= 0 || cartsall[item.id] >= item.stock?"inline-block":"none"}};' src="/images/plus.png"  bindtap="nostock" ></image>
+            <text style='display: {{item.stock <= 0 ?"inline-block":"none"}};'>已售罄</text>
+            <image class="goods_plus" style='display: {{item.stock > 0 && cartsall[item.id] >= item.stock?"inline-block":"none"}};' src="/images/plus.png"  bindtap="nostock" ></image>
           </view>
         </view>
       </view>

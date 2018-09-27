@@ -1,5 +1,5 @@
 
-
+<view class='count_down'>{{formatDuring}}</view>
 <swiper class="goods_thumb" circular="true" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
   <block>
     <swiper-item  wx:for="{{goodsinfo.imgall_src}}"  wx:key="key">
@@ -14,7 +14,7 @@
   <view class="goods_moreinfo">
     <view class='goods_payinfo'>
       <view class='paymoney'><view>￥{{goodsinfo.paydata.sum_price}}</view><view>已售金额</view></view>
-      <view class='paydays'><view>{{goodsinfo.paydata.days_remaining}}天</view><view>剩余时间</view></view>
+      <!-- <view class='paydays'><view>{{goodsinfo.paydata.days_remaining}}天</view><view>剩余时间</view></view> -->
       <view class='paynumber'><view>{{goodsinfo.paydata.count}}</view><view>支持人数</view></view>
     </view>
     <view class='goods_bili'>

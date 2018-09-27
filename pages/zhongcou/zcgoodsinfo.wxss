@@ -18,6 +18,7 @@
   line-height:100rpx;
   text-align:center;
   color:#fff;
+  background:#fff;
 }
 .footer>image{
   width:100rpx;
@@ -25,6 +26,7 @@
 }
 .home{
   width:100rpx;
+  height:100rpx;
   background-color:#fff!important;
 }
 .home>image{
@@ -42,6 +44,7 @@
 }
 .now_buy{
   flex:1;
+  height:100rpx;
   background:#ff0000;
   color:#fff;
   line-height: 100rpx
@@ -155,4 +158,17 @@
 .price_spec>view.on{
   color: #ff0000;
   border: solid 2rpx #ff0000;
+}
+
+.count_down{
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  height: 60rpx;
+  color: #fff;
+  background: #f00;
+  text-align: center;
+  font-size:35rpx;
+  line-height:60rpx;
 }

@@ -18,7 +18,8 @@ Page({
     number: 1,
     stock: 0,
     price:0,
-    isix: app.globalData.isix
+    isix: app.globalData.isix,
+    model: app.globalData.model,
   },
 
   /**

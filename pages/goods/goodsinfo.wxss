@@ -25,6 +25,7 @@
 }
 .home{
   width:100rpx;
+  height:100rpx;
   background-color:#fff!important;
 }
 .home>image{
@@ -36,10 +37,14 @@
   flex:1;
   border-right:1px solid #fff;
   background: #009999;
+  height:100rpx;
+
 }
 .now_buy{
   flex:1;
   background: #009999;
+  height:100rpx;
+
 }
 
 .goods_info{
