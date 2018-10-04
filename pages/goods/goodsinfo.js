@@ -20,6 +20,7 @@ Page({
     price:0,
     isix: app.globalData.isix,
     model: app.globalData.model,
+    recommendgoods:[],
   },
 
   /**
@@ -79,7 +80,8 @@ Page({
             goodsinfo: res.data.data,
             stock: res.data.data.stock,
             price: res.data.data.price,
-            realm_name: util.realm_name,
+            realm_name: util.realm_name, 
+            recommendgoods: res.data.data.recommendgoods,
           })
         }
       }
@@ -161,7 +163,7 @@ Page({
       is_to = false;
     } else if (number > stock) {
       wx.showToast({
-        title: '库存不足！',
+        title: '已售罄！',
         icon: 'none',
         duration: 2000
       })
@@ -184,6 +186,10 @@ Page({
         data: total
       });
 
+      wx.removeStorage({
+        key: 'couponinfo',
+      });
+
       wx.navigateTo({
         url: '/pages/cart/jiesuan?type=1'
       })
@@ -201,36 +207,44 @@ Page({
     var cartsall = this.data.cartsall;
     var cartsarr = this.data.cartsarr;//购物车商品添加顺序
     var number   = this.data.number;
+    var stock    = this.data.stock;
     var is_add   = true;
 
-    if (cartsall[id]){
-      cartsall[id] = cartsall[id] + number;
-    }else{
-      cartsall[id] = number;
+    if (number > stock) {
+      wx.showToast({
+        title: '已售罄！',
+        icon: 'none',
+        duration: 2000
+      })
+      is_add = false;
     }
-
-    if (cartsarr.indexOf(id) < 0){
-      cartsarr.unshift(id);
-    }
-
-    tins.setData({
-      cartsall: cartsall,
-      cartsarr: cartsarr
-    })
-
-    wx.setStorage({
-      key: "cartsall",
-      data: cartsall
-    });
-
-    wx.setStorage({
-      key: "cartsarr",
-      data: cartsarr
-    });
-
-    
 
     if (is_add){
+      if (cartsall[id]) {
+        cartsall[id] = cartsall[id] + number;
+      } else {
+        cartsall[id] = number;
+      }
+
+      if (cartsarr.indexOf(id) < 0) {
+        cartsarr.unshift(id);
+      }
+
+      tins.setData({
+        cartsall: cartsall,
+        cartsarr: cartsarr
+      })
+
+      wx.setStorage({
+        key: "cartsall",
+        data: cartsall
+      });
+
+      wx.setStorage({
+        key: "cartsarr",
+        data: cartsarr
+      });
+
       var arr = Object.keys(cartsall);
       var len = arr.length.toString();
       

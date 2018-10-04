@@ -12,8 +12,25 @@
     <view class="kucun">库存{{goodsinfo.stock}}件</view>
     <view class="sales">销售{{goodsinfo.sales}}件</view>
   </view>
-  
 </view>
+
+<view class="space"></view>
+<view class="view_title">为您推荐</view>
+<view class="goods_main" >
+  <navigator class="goods_list"  wx:for="{{recommendgoods}}" wx:for-item="v"  wx:key="key"  open-type="navigateTo" url='/pages/goods/goodsinfo?id={{v.id}}'>
+    <view class="goods_thumbs">
+      <image src="{{v.img_src}}"></image>
+    </view>
+    <view class="goods_contents">
+      <view class="goods_title">{{v.goods_name}}</view>
+      <view class="goods_more_info">
+        <view class="goods_price">￥{{v.price}}</view>
+        <text class="goods_oldprice">￥{{v.oldprice}}</text>
+      </view>
+    </view>
+  </navigator>
+</view>
+
 <view class="space"></view>
   <view class="view_title">图文详情</view>
   <rich-text class='goods_content' nodes="{{goodsinfo.content}}"></rich-text>

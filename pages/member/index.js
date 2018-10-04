@@ -173,7 +173,7 @@ Page({
 
                         if (res.confirm) {
                           wx.navigateTo({
-                            url: '/pages/member/paypasswd'
+                            url: '/pages/member/binding_phone'
                           })
                         }
                       }
@@ -256,6 +256,27 @@ Page({
     }else{
       wx.navigateTo({
         url: url
+      })
+    }
+  },
+
+  /**
+   * 跳转充值
+   */
+  recharge: function () {
+    var is_login = this.data.is_login;
+    if (is_login) {
+      wx.removeStorage({
+        key: 'rechargecoupon',
+      })
+      wx.navigateTo({
+        url: '/pages/member/recharge'
+      })
+    } else {
+      wx.showToast({
+        title: '登陆获取更多权限',
+        icon: 'none',
+        duration: 2000
       })
     }
   },

@@ -57,3 +57,35 @@
   background: #009999;
   color: #fff;
 }
+
+.p_select{
+  background:#fff;
+  height:100rpx;
+  display:flex;
+  flex-direction: row;
+  font-size:28rpx;
+  align-items: center;
+  border-bottom:1px solid #efefef;
+  margin-top: 20rpx;
+}
+
+.p_select>radio{
+    width:80rpx;
+    margin-left:20rpx;
+  }
+
+.p_address{
+  flex:1;
+}
+
+.coupon_nu{
+  text-align:left;
+  margin-left: 20rpx;
+}
+.more{
+  width:40rpx;
+}
+.more>image{
+  height:40rpx;
+  width:40rpx;
+}

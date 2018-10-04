@@ -130,11 +130,12 @@
 }
 .orderprices .pricesinfo text{
   display: inline-block;
+  margin-bottom:10rpx;
+
 }
 
 .orderprices .pricesinfo .num{
   margin-left: 10rpx;
-  
 }
 
 .orderprices .pricesinfo .yunfei{

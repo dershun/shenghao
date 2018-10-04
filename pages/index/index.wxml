@@ -40,12 +40,12 @@
 <view class="space"></view>
 <view class="chongzhi">
   <view class="title">------会员充值------</view>
-  <view class="space"></view>
+  <!-- <view class="space"></view>
   <view class="chongzhiinput">
     <view class="chongzhititle" style='width:180rpx;'>充值金额：</view>
     <input value='' type='number' bindinput="exitrecharge" placeholder="请输入充值金额"></input>
-  </view>
+  </view> -->
   <view class="space"></view>
-  <button class="chongzhi_button" bindtap="add_order" >立即充值</button>
+  <button class="chongzhi_button" bindtap="recharge" >立即充值</button>
 </view>
 <view class="space"></view>

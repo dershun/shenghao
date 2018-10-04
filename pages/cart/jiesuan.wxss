@@ -168,3 +168,8 @@
   color:#777;
   margin-top:10rpx;
 }
+
+.coupon_nu{
+  text-align:right;
+  margin-right: 20rpx;
+}

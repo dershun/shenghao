@@ -58,8 +58,15 @@
   <view class="p_select">
     <view class="padding_left_20 p_address">共计{{goodssum}}件商品</view>
     <view class="padding_right_20 postage">运费：{{postage}}</view>
-    <view class="padding_right_20">合计：{{total}}</view>
+    <view class="padding_right_20">合计：{{total_q}}</view>
   </view>
+  <view class='p_select ' bindtap='{{coupon_sto?"choice_coupon":""}}'>
+    <view class=" p_address coupon_nu">优惠卷：<text style='color:{{coupon_sto?"#f00":"#aaa"}}'>{{coupon_nu}}</text></view>
+    <view class="more">
+      <image src="/images/more.png"></image>
+    </view>
+  </view>
+
 </view>
 <view class="space"></view>
 
@@ -76,7 +83,7 @@
 </radio-group>
 <view class="margin-bottom"></view>
 <view class="space"></view>
-<view class="footer {{isix?'fix-iphonex-button':''}}">
-  <view class="all_money">合计金额:￥{{total}}</view>
+<view class="footer ">
+  <view class="all_money">实付金额:￥{{total}}</view>
   <view class="now_buy"  bindtap="add_order">立即支付</view>
 </view>

@@ -69,11 +69,15 @@
     <view class='pricesinfo'>
       <view class='num'>
         <text class='yunfei'>￥{{orderinfo.freight}}</text>
+        <text class='yunfei' style='color:#f00;display:{{orderinfo.coupon_price?"":"none"}};'>-￥{{orderinfo.coupon_price}}</text>
+        <text>￥{{orderinfo.total_amount}}</text>
         <text>￥{{orderinfo.order_price}}</text>
       </view>
       <view>
         <text class='yunfei'>运费：</text>
+        <text class='yunfei' style='display:{{orderinfo.coupon_type?"":"none"}};'>{{orderinfo.coupon_type == 1?"满减优惠卷":""}}{{orderinfo.coupon_type == 3?"运费抵用卷":""}}：</text>
         <text>共{{orderinfo.goods_count}}件商品  合计：</text>
+        <text>实付：</text>
       </view>
     </view>
   </view>

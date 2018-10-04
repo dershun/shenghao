@@ -24,6 +24,7 @@ Page({
         if (res.errMsg == 'getStorage:ok') {
           tins.setData({
             userinfo: res.data,
+            tel: res.data.tel
           })
         }
       }
@@ -225,7 +226,7 @@ Page({
     if (submit) {
       // 提交绑定
       wx.request({
-        url: util.realm_name + 'api.php?c=Member&a=pay_password',
+        url: util.realm_name + 'api.php?c=Member&a=binding_phone',
         method: 'POST',
         header: {
           'content-type': 'application/x-www-form-urlencoded' // 默认值
@@ -233,7 +234,6 @@ Page({
         data: {
           id: userinfo.id,
           tel: value.tel,
-          pay_password: value.pay_password,
         },
         success: function (res) {
           wx.hideLoading()

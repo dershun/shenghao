@@ -1,0 +1,118 @@
+/* pages/member/my_coupon.wxss */
+@import "/public/common.wxss";
+.addresslist{
+  
+  
+}
+
+.addressinfo{
+  background: #fff;
+  display: flex;
+  padding: 40rpx 0;
+  padding-left: 40rpx;
+  margin-top: 20rpx;
+}
+
+.addressinfo .check{
+  margin-right: 30rpx;
+  font-size: 24rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.addressinfo .check .syts{
+  text-align: center;
+  color: #f00;
+}
+
+.addressinfo .check .syts{
+  padding: 10rpx 5rpx;
+}
+
+.addressinfo .addresss{
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+}
+
+.addresss .nametel{
+  display: flex;
+  flex-direction: column;
+  font-size: 30rpx;
+}
+
+.addresss text{
+  color: #f00;
+  font-size: 38rpx;
+}
+
+.addresss .tel{
+  text-align: right;
+  margin-right:40rpx;
+}
+
+.addresss .coupon{
+  margin-left: 20rpx;
+  flex: 1;
+}
+
+.addresss .coupon_name{
+  font-size: 32rpx;
+  color: #000;
+  margin-right:30rpx;
+  flex:1;
+}
+
+.addresss .address{
+  font-size: 24rpx;
+  color: #777;
+  margin-top:15rpx;
+  margin-right:30rpx;
+  flex:1;
+}
+
+.addresss .ljsy{
+  width: 100rpx;
+  height: 35rpx;
+  background: #f00;
+  color: #fff;
+  border-radius: 20rpx;
+  font-size: 22rpx;
+  padding: 10rpx;
+  text-align: center;
+}
+
+.btn-area{
+  position: absolute;
+  bottom: 0;
+  display: block;
+  width: 698rpx;
+  border-top :#ccc solid 1rpx;
+  padding: 10px 26rpx;
+}
+
+.btn-area > button{
+  position: relative;
+  border: #009999;
+  background: #009999;
+  color: #fff;
+}
+
+.full_price{
+  margin-top:10rpx;
+  font-size:24rpx;
+  color:#777;
+  margin-right:30rpx;
+}
+
+.no_coupon{
+  background:#fff;
+  display:flex;
+  flex-direction: row;
+  padding-left:40rpx;
+}
+.no_coupon .coupon_name{
+  flex: 1;
+  font-size: 30rpx;
+  line-height:95rpx;
+}

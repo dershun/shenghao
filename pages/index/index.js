@@ -201,6 +201,18 @@ Page({
   },
 
   /**
+   * 跳转充值
+   */
+  recharge:function(){
+    wx.removeStorage({
+      key: 'rechargecoupon',
+    })
+    wx.navigateTo({
+      url: '/pages/member/recharge'
+    })
+  },
+
+  /**
    * 下单
    */
   add_order: function (osg) {

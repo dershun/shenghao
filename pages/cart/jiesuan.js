@@ -25,6 +25,7 @@ Page({
     store: [],
     storearr: [],
     storeaddress:'点击选择门店',//门店地址
+    is_add_postage: false //是否加运费
   },
 
   /**
@@ -42,7 +43,15 @@ Page({
       })
     }
 
-    
+    //会员信息
+    wx.getStorage({
+      key: 'userinfo',
+      success: function (res) {
+        that.setData({
+          userinfo: res.data,
+        })
+      }
+    })
 
     //总价格
     wx.getStorage({
@@ -50,6 +59,7 @@ Page({
       success: function (res) {
         that.setData({
           total: res.data,
+          total_q: res.data,
         })
       }
     })
@@ -101,6 +111,7 @@ Page({
             'content-type': 'application/x-www-form-urlencoded' // 默认值
           },
           data: {
+            member_id: that.data.userinfo.id,
             cartsall: idalls,
             order_type: options.type,
             total: that.data.total
@@ -113,15 +124,20 @@ Page({
                 goodsbill:idall,
                 goodslist: goodsdata,
                 goodssum: goodssum,
-                postage: res.data.data.postage,
+                postage_p: res.data.data.postage,
+                coupon: res.data.data.member_coupon.coupon,
               })
-            
-              if (res.data.data.postage > 0){
-                var total_p = (that.data.total *1) + (res.data.data.postage *1 );
-                total_p = total_p.toFixed(2);
-               
+       
+              if (res.data.data.member_coupon.code == 200){
                 that.setData({
-                  total: total_p,
+                  coupon_sto: true,
+                  coupon_nu: res.data.data.member_coupon.msg,
+                  
+                })
+              } else {
+                that.setData({
+                  coupon_sto: false,
+                  coupon_nu: res.data.data.member_coupon.msg,
                 })
               }
             }
@@ -130,8 +146,6 @@ Page({
 
       }
     })
-
-    
 
   },
 
@@ -173,12 +187,75 @@ Page({
               }
             }
           })
+          //优惠卷信息
+          wx.getStorage({
+            key: 'couponinfo',
+            success: function (res) {
+              if (res.errMsg == 'getStorage:ok') {
+                var total = tar.data.total_q;
+                var dispatching = tar.data.dispatching;
+                var postage = res.data.postage;
+                
+                if (res.data.id > 0){
+                  if (res.data.coupon_type == 1) {
+                    var totals = ((total * 1) - (res.data.price * 1))
+                    totals = totals.toFixed(2);
+                    postage = "0.00";
+                    if (dispatching == 1) {
+                      var totals = ((total * 1) - (res.data.price * 1)) + (res.data.postage * 1);
+                      totals = totals.toFixed(2);
+                      postage = res.data.postage;
+                    }
+                    tar.setData({
+                      couponinfo: res.data,
+                      total: totals,
+                      postage: postage,
+                      coupon_nu: "-￥" + res.data.price,
+                    })
+                  } else if (res.data.coupon_type == 3) {
+                    var totals = (total * 1);
+                    totals = totals.toFixed(2);
+                    postage = "0.00";
+                    if (dispatching == 1) {
+                      var totals = (total * 1) + (res.data.postage * 1);
+                      totals = totals.toFixed(2);
+                      postage = res.data.postage;
+                    }
+                    tar.setData({
+                      couponinfo: res.data,
+                      postage: postage,
+                      total: totals,
+                      coupon_nu: "-￥" + res.data.price,
+                    })
+                  }
+                }else{
+                  var postages = "0.00";
+                  var totals = (total * 1);
+                  if (dispatching == 1) {
+                    var postages = postage;
+                    totals = (total * 1) + (postage * 1);
+                  }
+                  totals = totals.toFixed(2);
+                  tar.setData({
+                    couponinfo: res.data,
+                    total: totals,
+                    postage: postages,
+                    coupon_nu: "-￥0.00" ,
+                  })
+                }
+                
+              }
+            }
+          })
           if (res.data.default_address) {
             tar.getaddress(res.data.default_address, res.data.id);
           }
         }
       }
     })
+
+    
+
   },
 
   /**
@@ -249,9 +326,33 @@ Page({
    */
   dispatching: function(osg) {
     var that = this;
+    var is_add_postage = that.data.is_add_postage;
+    if (that.data.couponinfo){
+      var postage_p = that.data.couponinfo.postage;
+    }else{
+      var postage_p = that.data.postage_p;
+    }
     if (osg.detail.value == 1){
+      if (!is_add_postage){
+        var total = (that.data.total * 1) + (postage_p * 1);
+        total = total.toFixed(2);
+        that.setData({
+          total: total,
+          postage: postage_p,
+          is_add_postage: true
+        })
+      }
       
     }else if (osg.detail.value == 2){
+      if (is_add_postage) {
+        var total = (that.data.total * 1) - (that.data.postage * 1);
+        total = total.toFixed(2);
+        that.setData({
+          total: total,
+          postage: '0.00',
+          is_add_postage: false
+        })
+      }
       // 门店列表
       wx.request({
         url: util.realm_name +'api.php?c=Cart&a=getstore',
@@ -335,6 +436,7 @@ Page({
     var address_id = this.data.address_id;//收货地址id
     var store_id = this.data.store_id;//门店id
     var userinfo = this.data.userinfo;//会员信息
+    var couponinfo = this.data.couponinfo;//优惠卷信息
     var submit = true;
     var tal = this;
     
@@ -402,6 +504,24 @@ Page({
       var price_spec = this.data.price_spec//众筹档位
       
       var goodsbills = JSON.stringify(goodsbill);
+
+      var podata = {
+        uid: this.data.userinfo.id,
+        order_price: total,
+        goodsid: goodsbills,
+        deliver_type: dispatching,
+        address_id: address_id,
+        pay_type: pay_mode,
+        order_type: order_type,
+        price_spec: price_spec,
+        store_id: store_id,
+        freight: freight,
+        
+      };
+
+      if (couponinfo){
+        podata['coupon_id']= couponinfo.id;
+      }
      
       wx.request({
         url: util.realm_name +'api.php?c=Order&a=addorder',
@@ -409,18 +529,7 @@ Page({
         header: {
           'content-type': 'application/x-www-form-urlencoded' // 默认值
         },
-        data: {
-          uid: this.data.userinfo.id,
-          order_price: total,
-          goodsid: goodsbills,
-          deliver_type: dispatching,
-          address_id: address_id,
-          pay_type: pay_mode,
-          order_type: order_type,
-          price_spec: price_spec,
-          store_id: store_id,
-          freight: freight,
-        },
+        data: podata,
         success: function (res) {
 
           if (res.data.code == 200) {
@@ -574,5 +683,17 @@ Page({
       data: '0.00'
     })
 
+  },
+
+  /**
+   * 选择优惠卷
+   */
+  choice_coupon:function(){
+    var postage_p = this.data.postage_p;
+    var coupon = this.data.coupon;
+
+    wx.navigateTo({
+      url: '/pages/cart/coupon_list?postage=' + postage_p + "&coupon=" + coupon
+    })
   }
 })

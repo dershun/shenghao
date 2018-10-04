@@ -1,0 +1,24 @@
+<!--pages/Member/coupon_list.wxml-->
+<radio-group class="addresslist" bindchange="pickeraddress">
+    <view class='no_coupon'>
+      <text class='coupon_name'>不使用优惠卷</text>
+      <view class="check "><radio value="0" checked="{{rechargecoupon.id == 0?true:fales}}" color="#009999"/></view>
+    </view>
+    <view class='addressinfo'  wx:for="{{couponlist}}"  wx:key="key">
+      <view class='addresss'>
+        <view class='nametel'>
+          <text class='price'>￥{{item.price}}</text>
+          <view class='full_price '>满 {{item.full_price}} 可用</view>
+        </view>
+        <view class='coupon'>
+          <view class='coupon_name'>{{item.coupon_name}}</view>
+          <view class='address'>{{item.start_time}} ~ {{item.end_time}}</view>
+        </view>
+        <view class="check "><radio value="{{item.id}}"  checked="{{rechargecoupon.id == item.id?true:fales}}" disabled="{{item.use}}" color="#009999"/></view>
+      </view>
+    </view>
+</radio-group>
+
+<!-- <view class="btn-area">
+  <button bindtap = "Submitaddress">确认</button>
+</view> -->

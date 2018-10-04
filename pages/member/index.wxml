@@ -45,7 +45,7 @@
     <image src="../../images/After_sale.png"></image>
     <text>售后</text>
   </view>
-  <view class="list" bindtap="open_page" data-url="/pages/member/recharge" data-login="true">
+  <view class="list" bindtap="recharge">
     <image src="../../images/chongzhi.png"></image>
     <text>充值</text>
   </view>
@@ -60,6 +60,11 @@
   <view class='service' bindtap="open_page" data-url="/pages/zhongcou/myzclist?uid={{userinfo.id}}" data-login="true">
     <image src="../../images/zhongcou_active.png" class='tubiao' ></image>
     <view class='title'>我的预购</view>
+    <image src="../../images/more.png" class='youjt'></image>
+  </view>
+  <view class='service' bindtap="open_page" data-url="/pages/member/my_coupon" data-login="true">
+    <image src="../../images/coupon.png" class='tubiao' ></image>
+    <view class='title'>优惠卷</view>
     <image src="../../images/more.png" class='youjt'></image>
   </view>
   <!-- <view class='service'>

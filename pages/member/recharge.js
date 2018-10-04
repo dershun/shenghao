@@ -23,6 +23,30 @@ Page({
           tins.setData({
             userinfo: res.data,
           })
+          // 获取优惠卷
+          wx.request({
+            url: util.realm_name + 'api.php?c=Member&a=recharge_coupon',
+            method: 'POST',
+            header: {
+              'content-type': 'application/x-www-form-urlencoded' // 默认值
+            },
+            data: {
+              member_id: res.data.id,
+            },
+            success: function (res) {
+              if (res.data.code == 200) {
+                tins.setData({
+                  coupon_sto: true,
+                  coupon_nu: res.data.msg,
+                })
+              } else {
+                tins.setData({
+                  coupon_sto: false,
+                  coupon_nu: res.data.msg,
+                })
+              }
+            }
+          })
         }
       }
     });
@@ -39,7 +63,26 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    var that = this;
+    //优惠卷信息
+    wx.getStorage({
+      key: 'rechargecoupon',
+      success: function (res) {
+        if (res.errMsg == 'getStorage:ok') {
+          console.log(res.data);
+          if (res.data.coupon_type == 2){
+            var price = "0.00";
+            if (res.data.id > 0){
+              price = res.data.price;
+            }
+            that.setData({
+              rechargecoupon: res.data,
+              coupon_nu: "-￥" + price,
+            })
+          }
+        }
+      }
+    })
   },
 
   /**
@@ -78,21 +121,36 @@ Page({
   },
 
   /**
+   * 输入充值金额
+   */
+  inputnumber: function (e){
+    var value = e.detail.value;
+    this.setData({
+      number: value,
+    })
+  },
+
+  /**
    * 立即充值
    */
   formSubmit: function (e){
     var tal = this;
-    var value = e.detail.value;
+    var number = tal.data.number;
+    var rechargecoupon = tal.data.rechargecoupon;
     var userinfo = this.data.userinfo;
     var submit = true;
     var reg = /(^[1-9]([0-9]+)?(\.[0-9]{1,2})?$)|(^(0){1}$)|(^[0-9]\.[0-9]([0-9])?$)/;
-    if (!reg.test(value.number) || value.number <= 1 ) {
+    if (!reg.test(number) || number < 1 ) {
       wx.showToast({
         title: '请输入正确的金额',
         icon: 'none',
         duration: 2000
       })
       submit = false;
+    }
+  
+    if (rechargecoupon){
+      var numbers = (number * 1) - (rechargecoupon.price*1)
     }
     
     if (submit) {
@@ -105,13 +163,15 @@ Page({
         },
         data: {
           uid: userinfo.id,
-          order_price: value.number,
+          order_price: numbers,
+          chongzhi_price: number,
+          coupon_id: rechargecoupon.id,
         },
         success: function (res) {
           if (res.data.code == 200) {
             var datas = res.data.data;
             datas.openid = userinfo.openid;
-
+            
             tal.pay(datas);//调用支付
           } else if (res.data.code == 100) {
             wx.showToast({
@@ -163,4 +223,17 @@ Page({
       }
     })
   },
+
+  /**
+   * 选择优惠卷
+   */
+  choice_coupon: function () {
+    var number = this.data.number;
+    if (!number) {
+      number = 0;
+    }
+    wx.navigateTo({
+      url: '/pages/member/coupon_list?number=' + number
+    })
+  }
 })

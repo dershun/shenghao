@@ -3,7 +3,13 @@
 
   <view class="section">
     <view class="section__title"><image src="../../images/recharge.png" class='youjt'></image></view>
-    <input name="number" type="number"  cursor-spacing="50" placeholder="请输入充值金额" maxlength="11" bindinput="inputtel"/>
+    <input name="number" type="number"  cursor-spacing="50" placeholder="请输入充值金额" maxlength="11" bindinput="inputnumber"/>
+  </view>
+  <view class='p_select section' bindtap='{{coupon_sto?"choice_coupon":""}}'>
+    <view class=" p_address coupon_nu">优惠卷：<text style='color:{{coupon_sto?"#f00":"#aaa"}}'>{{coupon_nu}}</text></view>
+    <view class="more">
+      <image src="/images/more.png"></image>
+    </view>
   </view>
 
   <view class='btn-area'>

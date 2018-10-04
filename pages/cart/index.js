@@ -442,6 +442,10 @@ Page({
         key: "total",
         data: total
       });
+
+      wx.removeStorage({
+        key: 'couponinfo',
+      })
       
       wx.navigateTo({
         url: '/pages/cart/jiesuan?type=1'

@@ -17,6 +17,7 @@ Page({
     price: 0,
     total:0,
     number:1,
+    recommendgoods: [],
   },
 
   /**
@@ -67,7 +68,8 @@ Page({
             price: res.data.data.price,
             no_disabled: no_disabled,
             realm_name: util.realm_name,
-            formatDuring: formatDuring
+            formatDuring: formatDuring,
+            recommendgoods: res.data.data.recommendgoods,
           })
           if (res.data.data.paydata.second_remaining > 0) {
             that.Count_down();
@@ -246,6 +248,10 @@ Page({
         key: "total",
         data: price
       });
+
+      wx.removeStorage({
+        key: 'couponinfo',
+      })
 
       wx.navigateTo({
         url: '/pages/cart/jiesuan?type=2'

@@ -1,0 +1,26 @@
+<!--pages/member/my_coupon.wxml-->
+<radio-group class="addresslist" bindchange="pickeraddress">
+    <view class='no_coupon'>
+    </view>
+    <view class='addressinfo'  wx:for="{{couponlist}}"  wx:key="key">
+      <view class='addresss'>
+        <view class='nametel'>
+          <text class='price'>￥{{item.price}}</text>
+          <view class='full_price {{item.coupon_type != 1?"hide":""}}'>满 {{item.full_price}} 可用</view>
+          <view class='full_price {{item.coupon_type != 3?"hide":""}}'>仅限抵扣运费</view>
+        </view>
+        <view class='coupon'>
+          <view class='coupon_name'>{{item.coupon_name}}</view>
+          <view class='address'>{{item.start_time}} ~ {{item.end_time}}</view>
+        </view>
+        <view class="check ">
+        <view class="syts">{{item.number_days}}</view>
+        <view class="ljsy" bindtap="goodsclassify">立即使用</view>
+        </view>
+      </view>
+    </view>
+</radio-group>
+
+<!-- <view class="btn-area">
+  <button bindtap = "Submitaddress">确认</button>
+</view> -->
