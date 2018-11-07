@@ -3,7 +3,7 @@
 <view class="p_select">
   <radio class="check padding_left_20" value="1" checked="" color="#009999"/>
   <view class="p_text">送货上门</view>
-  <view class="p_info">预计送达</view>
+  <!-- <view class="p_info">预计送达</view> -->
 </view>
 <view class="p_select">
   <radio class="check padding_left_20" value="2" checked="" color="#009999"/>

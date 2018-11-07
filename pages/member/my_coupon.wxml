@@ -7,6 +7,7 @@
         <view class='nametel'>
           <text class='price'>￥{{item.price}}</text>
           <view class='full_price {{item.coupon_type != 1?"hide":""}}'>满 {{item.full_price}} 可用</view>
+          <view class='full_price {{item.coupon_type != 2?"hide":""}}'>充 {{item.full_price}} 可用</view>
           <view class='full_price {{item.coupon_type != 3?"hide":""}}'>仅限抵扣运费</view>
         </view>
         <view class='coupon'>
